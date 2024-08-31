@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  server:
+    platform: linux/amd64
+    build: .
+    volumes:
+      - ./server/src/:/home/usr/src/
+      - ./libs/:/home/usr/libs/
+    networks:
+      - grpc
+    ports:
+      - 8080:8080
+    stdin_open: true
+    tty: true
+
+  client:
+    platform: linux/amd64
+    build: .
+    volumes:
+      - ./client/src/:/home/usr/src/
+      - ./libs/:/home/usr/libs/
+    networks:
+      - grpc
+    stdin_open: true
+    tty: true
+
+networks:
+  grpc:
+    driver: bridge
