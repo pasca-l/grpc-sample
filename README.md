@@ -7,10 +7,10 @@ Sample of using gRPC.
 
 ## Usage
 1. Set up docker containers.
-  - Server will start automatically.
 ```bash
 $ docker compose up -d
 ```
+- Server will start automatically.
 
 2. Run request from client.
 ```bash
