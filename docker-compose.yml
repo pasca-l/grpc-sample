@@ -13,6 +13,7 @@ services:
       - 8080:8080
     stdin_open: true
     tty: true
+    command: sh -c "go run main.go"
 
   client:
     platform: linux/amd64
@@ -24,6 +25,8 @@ services:
       - grpc
     stdin_open: true
     tty: true
+    depends_on:
+      - server
 
 networks:
   grpc:
